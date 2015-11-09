@@ -24,12 +24,13 @@ public class IntegralRiemann {
 	}
 	
 	public double getNilaiIntegral(){
-		double dx = (batasAtas - batasBawah)/partisi;
+		double dx = (batasAtas - batasBawah)/partisi; // dx lebar partisi
 		double nilaiIntegral = 0.0;
 		double pos = batasBawah;
 		for (int i=1;i<=partisi;i++){
-			pos = dx * i;
-			nilaiIntegral = nilaiIntegral + getNilaiFungsi(pos) * dx;
+			pos = pos + dx; //posisi x pada iterasi ke-i
+			double luasPartisi =  getNilaiFungsi(pos) * dx; //luas partisi ke-i (dx kali nilai fungsi pada posisi pos)
+			nilaiIntegral = nilaiIntegral + luasPartisi;
 		}
 		return nilaiIntegral;
 	}
